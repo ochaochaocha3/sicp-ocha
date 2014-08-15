@@ -1,0 +1,7 @@
+digraph sample {
+    "expmod 10" -> "expmod 5";
+    "expmod 5" -> "expmod 4";
+    "expmod 4" -> "expmod 2";
+    "expmod 2" -> "expmod 1";
+    "expmod 1" -> "expmod 0";
+}

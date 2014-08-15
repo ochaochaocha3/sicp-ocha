@@ -1,0 +1,61 @@
+digraph {
+    em10[label="expmod 10"];
+
+    em5_1[label="expmod 5"];
+    em5_2[label="expmod 5"];
+
+    em4_1[label="expmod 4"];
+    em4_2[label="expmod 4"];
+
+    em2_1[label="expmod 2"];
+    em2_2[label="expmod 2"];
+    em2_3[label="expmod 2"];
+    em2_4[label="expmod 2"];
+
+    em1_1[label="expmod 1"];
+    em1_2[label="expmod 1"];
+    em1_3[label="expmod 1"];
+    em1_4[label="expmod 1"];
+    em1_5[label="expmod 1"];
+    em1_6[label="expmod 1"];
+    em1_7[label="expmod 1"];
+    em1_8[label="expmod 1"];
+
+    em0_1[label="expmod 0"];
+    em0_2[label="expmod 0"];
+    em0_3[label="expmod 0"];
+    em0_4[label="expmod 0"];
+    em0_5[label="expmod 0"];
+    em0_6[label="expmod 0"];
+    em0_7[label="expmod 0"];
+    em0_8[label="expmod 0"];
+
+    em10 -> em5_1;
+    em10 -> em5_2;
+
+    em5_1 -> em4_1;
+    em5_2 -> em4_2;
+
+    em4_1 -> em2_1;
+    em4_1 -> em2_2;
+    em4_2 -> em2_3;
+    em4_2 -> em2_4;
+
+    em2_1 -> em1_1;
+    em2_1 -> em1_2;
+    em2_2 -> em1_3;
+    em2_2 -> em1_4;
+    em2_3 -> em1_5;
+    em2_3 -> em1_6;
+    em2_4 -> em1_7;
+    em2_4 -> em1_8;
+
+    em1_1 -> em0_1;
+    em1_2 -> em0_2;
+    em1_3 -> em0_3;
+    em1_4 -> em0_4;
+    em1_5 -> em0_5;
+    em1_6 -> em0_6;
+    em1_7 -> em0_7;
+    em1_8 -> em0_8;
+}

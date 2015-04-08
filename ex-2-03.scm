@@ -3,7 +3,7 @@
 (add-load-path "." :relative)
 (load "ex-2-02.scm")
 
-; $B;OE@$H=*E@$GD9J}7A$rDj5A$9$k(B
+; 始点と終点で長方形を定義する
 (define (make-rectangle-p start end) (cons start end))
 (define (start-rectangle-p r) (car r))
 (define (end-rectangle-p r) (cdr r))
@@ -17,7 +17,7 @@
 (define (perimeter-rectangle-p r)
   (* (width-rectangle-p r) (height-rectangle-p r)))
 
-; $BBP3Q@~$GD9J}7A$rDj5A$9$k(B
+; 対角線で長方形を定義する
 (define (make-rectangle-s s) s)
 (define (diagonal-rectangle-s r) r)
 

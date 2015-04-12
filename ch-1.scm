@@ -57,18 +57,25 @@
 ;; The Fermat test
 
 ;; Mersenne Twister
-(use math.mt-random)
-(define mt (make <mersenne-twister> :seed (sys-time)))
+
+(use srfi-27)
+
+(define (random n) (random-integer n))
+(random-source-randomize! default-random-source)
 
 (define (expmod base exp m)
   (cond ((= exp 0) 1)
-        ((even? exp) (remainder (square (expmod base (/ exp 2) m)) m))
-        (else (remainder (* base (expmod base (- exp 1) m)) m))))
+        ((even? exp)
+         (remainder (square (expmod base (/ exp 2) m))
+                    m))
+        (else
+          (remainder (* base (expmod base (- exp 1) m))
+                     m))))
 
 (define (fermat-test n)
   (define (try-it a)
     (= (expmod a n n) a))
-  (try-it (+ 1 (mt-random-integer mt (- n 1)))))
+  (try-it (+ 1 (random (- n 1)))))
 
 (define (fast-prime? n times)
   (cond ((= times 0) #t)

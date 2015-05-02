@@ -81,3 +81,45 @@
   (cond ((= times 0) #t)
         ((fermat-test n) (fast-prime? n (- times 1)))
         (else #f)))
+
+;; 1.3  Formulating Abstractions with Higher-Order Procedures
+
+;; 三乗を得る
+(define (cube x) (* x x x))
+
+;; 1.3.1 Procedures as Arguments
+
+;; 総和を求める
+(define (sum term a next b)
+  (if (> a b)
+    0
+    (+ (term a)
+       (sum term (next a) next b))))
+
+;; 引数を 1 増やす
+(define (inc n) (+ n 1))
+
+;; a から b までの整数の三乗の和
+(define (sum-cubes a b)
+  (sum cube a inc b))
+
+;; 恒等手続き
+(define (identity x) x)
+
+;; a から b までの整数の和
+(define (sum-integers a b)
+  (sum identity a inc b))
+
+;; π/8 に収束する級数
+(define (pi-sum a b)
+  (define (pi-term x)
+    (/ 1.0 (* x (+ x 2))))
+  (define (pi-next x)
+    (+ x 4))
+  (sum pi-term a pi-next b))
+
+;; 定積分（台形公式）
+(define (integral f a b dx)
+  (define (add-dx x) (+ x dx))
+  (* (sum f (+ a (/ dx 2.0)) add-dx b)
+     dx))

@@ -1,5 +1,8 @@
 ;; Exercise 1.32
-(load "./ch-1.scm")
+
+(add-load-path "." :relative)
+
+(load "ch-1.scm")
 
 (define (accumulate combiner null-value term a next b)
   (if (> a b)

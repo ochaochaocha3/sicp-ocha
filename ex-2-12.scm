@@ -2,6 +2,7 @@
 
 (add-load-path "." :relative)
 (load "ch-2.scm")
+(load "ex-2-07.scm")
 
 (define (make-center-percent c p)
   (make-center-width c

@@ -1,5 +1,8 @@
 ;; Exercise 1.36
-(load "./ch-1.scm")
+
+(add-load-path "." :relative)
+
+(load "ch-1.scm")
 
 (define tolerance 0.00001)
 (define (fixed-point f guess)

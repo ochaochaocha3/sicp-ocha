@@ -17,9 +17,13 @@
         (try next))))
   (try guess))
 
-(define (solve-x^x=1000 average-damping)
-  (if average-damping
-    (fixed-point (lambda (x) (average x (/ (log 1000) (log x))))
-                 2.0)
-    (fixed-point (lambda (x) (/ (log 1000) (log x)))
-                 2.0)))
+(define (f x)
+  (/ (log 1000) (log x)))
+
+(define (solve-x^x=1000)
+  (fixed-point f 2.0))
+
+(define (solve-x^x=1000-with-average-damping)
+  (fixed-point (lambda (x)
+                 (average x (f x)))
+               2.0))

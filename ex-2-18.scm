@@ -4,8 +4,7 @@
 (load "ch-2.scm")
 
 (define (my-reverse items)
-  (if (or (null? items)
-          (null? (cdr items)))
+  (if (null? items)
     items
     (append (reverse (cdr items))
             (list (car items)))))

@@ -72,3 +72,6 @@
     (div-interval one
                   (add-interval (div-interval one r1)
                                 (div-interval one r2)))))
+
+;; 2.2.1 並びの表現
+(define nil (list))

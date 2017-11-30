@@ -5,7 +5,8 @@
   ; フィルタ手続き（末尾再帰）
   (define (same-parity-filter pred ls acc)
     (if (null? ls)
-      acc
+      ; 末尾再帰版は逆順になって帰ってくるので最後に逆順にする
+      (reverse acc)
       (same-parity-filter
         pred
         (cdr ls)
@@ -17,6 +18,4 @@
   (let ((odd-or-even (if (odd? first)
                        odd?
                        even?)))
-    ; 末尾再帰版は逆順になって帰ってくるので最後に逆順にする
-    (reverse
-      (same-parity-filter odd-or-even rest (list first)))))
+    (same-parity-filter odd-or-even rest (list first))))

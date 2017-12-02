@@ -4,12 +4,10 @@
 
 ;; 再帰プロセス版
 (define (deep-reverse items)
-  (if (null? items)
-    nil
-    (append (deep-reverse (cdr items))
-            (list (if (list? (car items))
-                    (deep-reverse (car items))
-                    (car items))))))
+  (cond ((null? items) nil)
+        ((not (pair? items)) items)
+        (else (append (deep-reverse (cdr items))
+                      (list (deep-reverse (car items)))))))
 
 ;; 反復プロセス版
 (define (deep-reverse-rec items)

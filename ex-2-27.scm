@@ -7,10 +7,9 @@
   (if (null? items)
     nil
     (append (deep-reverse (cdr items))
-            (let ((head (car items)))
-              (list (if (list? head)
-                      (deep-reverse head)
-                      head))))))
+            (list (if (list? (car items))
+                    (deep-reverse (car items))
+                    (car items))))))
 
 ;; 反復プロセス版
 (define (deep-reverse-rec items)
@@ -18,9 +17,8 @@
     (if (null? ls)
       acc
       (iter (cdr ls)
-            (cons (let ((head (car ls)))
-                    (if (list? head)
-                      (iter head nil)
-                      head))
+            (cons (if (list? (car ls))
+                    (iter (car ls) nil)
+                    (car ls))
                   acc))))
   (iter items nil))

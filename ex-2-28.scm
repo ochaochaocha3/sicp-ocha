@@ -16,7 +16,6 @@
       acc
       (iter (cdr ls)
             (if (list? (car ls))
-              (append (iter (car ls) nil)
-                      acc)
+              (iter (car ls) acc)
               (cons (car ls) acc)))))
   (reverse (iter items nil)))
